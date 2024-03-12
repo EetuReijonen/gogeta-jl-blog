@@ -3,8 +3,8 @@ title: Home
 filename: index.md
 --- 
 
-# First page
+# Gogeta.jl blog
 
-This is a GitHub pages test.
+This page shows experiments done with the [Gogeta.jl](https://github.com/gamma-opt/Gogeta.jl) package.
 
-[link to about](about.md)
+### [Relaxing walk - limiting the number of samples](relaxing-walk.md)
