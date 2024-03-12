@@ -1,7 +1,9 @@
 ---
-title: HOME PAGE
+title: Home
 filename: index.md
 --- 
+
+# First page
 
 This is a GitHub pages test.
 
