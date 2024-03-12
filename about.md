@@ -1,6 +1,5 @@
 ---
 title: About
-layout: post
 filename: about.md
 --- 
 
