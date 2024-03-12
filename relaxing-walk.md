@@ -6,7 +6,7 @@ filename: relaxing-walk.md
 # Relaxing walk - limiting the number of samples
 
 Testing was done on a neural network trained to approximate Himmelblau's function. 
-The function has four maxima but due to the inaccuracies introduced by the training process, our network has a true maximum at around $(-3, 3)$.
+The function has four maxima but due to the inaccuracies introduced by the training process, our network has a true maximum at around (-3, 3).
 
 The network has structure 2-100-100-1, i.e., 2 hidden layers of 100 neurons.
 
@@ -85,4 +85,4 @@ With fewer iterations, the samples _might_ not cover the domain as well. Not all
 
 Limiting the number of samples per iteration might make the relaxing walk algorithm perform better, i.e., sample a more balanced set of points from the domain in the same time compared to the "no-limit" sampling. Here a more balanced set means that samples will be taken around every extrema, not focused in one part of the domain.
 
-More testing is needed comparing the performance of the "limited" and "no-limit" sampling strategies with different neural network architectures, multiple dimensions and different testing functions.
+These results might be totally different in higher dimensions, for example. There it might be more beneficial to continue fixing the binary variables further. More testing is needed comparing the performance of the "limited" and "no-limit" sampling strategies with different neural network architectures, multiple dimensions and different testing functions.
