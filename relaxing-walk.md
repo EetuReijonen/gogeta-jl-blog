@@ -81,8 +81,18 @@ With fewer iterations, the samples _might_ not cover the domain as well. Not all
 
 <img src="images/samples-nolimit-optima.png" width="400"/>
 
+Here is another example of the sampled points when 300 iterations were used with maximum 3 samples per iteration. This resulted in 541 unique points which are plotted here.
+
+<img src="images/300-iter.svg" width="400"/>
+
+When comparing the sample point density heatmap (above) to the neural network output heatmap (below), it can be seen that the sampling algorithm heavily biases points near the extrema.
+
+<img src="images/300-iter-heat.svg" width="400"/>
+
+'<img src="images/himmel-heat.svg" width="400"/>
+
 ## Conclusions
 
-Limiting the number of samples per iteration might make the relaxing walk algorithm perform better, i.e., sample a more balanced set of points from the domain in the same time compared to the "no-limit" sampling. Here a more balanced set means that samples will be taken around every extrema, not focused in one part of the domain.
+Limiting the number of samples per iteration might make the relaxing walk algorithm perform better, i.e., sample a more balanced set of points from the domain that is focused near the extrema in the same time compared to the "no-limit" sampling. Here a more balanced set means that samples will be taken around every extrema, not focused in one part of the domain.
 
 These results might be totally different in higher dimensions, for example. There it might be more beneficial to continue fixing the binary variables further. More testing is needed comparing the performance of the "limited" and "no-limit" sampling strategies with different neural network architectures, multiple dimensions and different testing functions.
