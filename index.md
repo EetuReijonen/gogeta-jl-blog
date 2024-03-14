@@ -8,3 +8,5 @@ filename: index.md
 This page shows experiments done with the [Gogeta.jl](https://github.com/gamma-opt/Gogeta.jl) package.
 
 ### [Relaxing walk - limiting the number of samples](relaxing-walk.md)
+
+### [Neural network initialization - why randomness might mislead](nn-initialization.md)
