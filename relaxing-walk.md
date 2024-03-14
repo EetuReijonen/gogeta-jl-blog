@@ -5,7 +5,12 @@ filename: relaxing-walk.md
 
 # Relaxing walk - limiting the number of samples
 
-Testing was done on a neural network trained to approximate Himmelblau's function. 
+This short article investigates the relaxing walk -algorithm introduced by Tong et al. (2024) and tries to improve it.
+The improvements are based on the key observation that many of the linear relaxation models produced in the sampling phase are near-constant or infeasible.
+
+## The neural network
+
+Testing was done on a neural network trained to approximate an altered Himmelblau's function. 
 The function has four maxima but due to the inaccuracies introduced by the training process, our network has a true maximum at around (-3, 3).
 
 The network has structure 2-100-100-1, i.e., 2 hidden layers of 100 neurons.
@@ -44,8 +49,9 @@ Six runs were performed in total.
 ### 6.
 <img src="images/spaces-6.png" width="500"/>
 
-From the images it can be seen that most of the LR models are near constant or very different from the function of interest. 
+From the images it can be seen that most of the LR models are near constant or very different from the function of interest.
 This means that their maxima will not be good starting points for the local search algorithm.
+Many of the LR models are actually infeasible as well and time is wasted trying to optimize them.
 
 However, usually the first few LR models seem reasonably good.
 Therefore, it might be beneficial to only use the first few LR models for sampling and then start a new iteration (reset binary variables).
@@ -81,6 +87,8 @@ With fewer iterations, the samples _might_ not cover the domain as well. Not all
 
 <img src="images/samples-nolimit-optima.png" width="400"/>
 
+### Sampling efficiency
+
 Here is another example of the sampled points when 300 iterations were used with maximum 3 samples per iteration. This resulted in 541 unique points which are plotted here.
 
 <img src="images/300-iter.svg" width="400"/>
@@ -96,3 +104,7 @@ When comparing the sample point density heatmap (above) to the neural network ou
 Limiting the number of samples per iteration might make the relaxing walk algorithm perform better, i.e., sample a more balanced set of points from the domain that is focused near the extrema in the same time compared to the "no-limit" sampling. Here a more balanced set means that samples will be taken around every extrema, not focused in one part of the domain.
 
 These results might be totally different in higher dimensions, for example. There it might be more beneficial to continue fixing the binary variables further. More testing is needed comparing the performance of the "limited" and "no-limit" sampling strategies with different neural network architectures, multiple dimensions and different testing functions.
+
+## References
+
+*Tong, J., Cai, J., & Serra, T. (2024). Optimization Over Trained Neural Networks: Taking a Relaxing Walk. arXiv preprint arXiv:2401.03451.*
