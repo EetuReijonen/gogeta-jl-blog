@@ -4,6 +4,7 @@ filename: relaxing-walk.md
 ---
 
 # Relaxing walk - limiting the number of samples
+> *Released* 12.03.2024, *edited* 14.03.2024
 
 This short article investigates the relaxing walk -algorithm introduced by Tong et al. (2024) and tries to improve it.
 The improvements are based on the key observation that many of the linear relaxation models produced in the sampling phase are near-constant or infeasible.

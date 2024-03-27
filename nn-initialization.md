@@ -4,6 +4,7 @@ filename: nn-initialization.md
 ---
 
 # Neural network initialization - why randomness might mislead
+> *Released* 14.03.2024
 
 In the neural network sampling paper (Perakis and Tsiourvas, 2022) as well as the relaxing walk paper (Tong et al., 2024), the authors use randomly initialized neural networks for their computational experiments. The random weight initialization method used by both is the so-called Xavier initialization, and it is the default in the `Flux.jl` Julia package.
 
