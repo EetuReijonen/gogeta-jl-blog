@@ -4,7 +4,7 @@ filename: nn-robustness.md
 ---
 
 # Neural network robustness verification
-> *Released* 27.03.2024, *edited* 9.4.2024
+> *Released* 27.03.2024, *edited* 10.4.2024
 
 ## What is neural network robustness verification?
 
@@ -64,6 +64,8 @@ filename: nn-robustness.md
 
 ## Literature
 
+*The Fourth International Verification of Neural Networks Competition (VNN-COMP 2023): Summary and Results (Brix et al., 2023)*
+
 *Reluplex: An efficient SMT solver for verifying deep neural networks (Katz et al., 2017)*
 * Reluplex verifier
 
@@ -78,6 +80,7 @@ filename: nn-robustness.md
 
 *Beta-CROWN: Efficient Bound Propagation with Per-neuron Split Constraints for Neural Network Robustness Verification (Wang et al., 2021)*
 * GPU bound tightening
+* complete verification
 
 *Towards Evaluating the Robustness of Neural Networks (Carlini and Wagner, 2017)*
 * C&W attack
@@ -133,6 +136,14 @@ Methods for certifying the robustness of individual inputs also exist. They are 
 
 Finally, in addition to local robustness, some research has also been focused on global robustness verification. The problem of global robustness is much harder than that of local robustness, and even defining global robustness mathematically can be challenging. Still, MIP and SMT -based methods for tackling this problem have been proposed. The problem with them, however, is the same as with certified robustness but even worse. Due to computational high cost, only very small neural networks can be globally verified. Also, the classifications which can be considered robust seem to have to be exceptionally certain, i.e., have a large difference between the scores of the highest predicted label and the second highest label.
 
+### Current state-of-the-art methods
+
+The international verification of neural networks competition (VNN-COMP) has been held annually since 2020 to fairly and objectively compare neural network verification methods. The last year's competition (2023) determined **α,β-CROWN** to be the winner. This verifier was the fastest and able to verify the largest number of instances in most of the benchmarks used. It is based in GPU bound propagation, a branch-and-bound algorithm and mixed-integer programming. 
+
+The VNN-COMP is focused on complete neural network verifiers, i.e., algorithms that should be able to find certificates of robustness. The problem of finding just adversarial examples is easier, though. I'm not aware whether there is a clear winner among the methods for adversarial attacks. In terms of white-box attacks **AutoAttack** seems to perform the best, at least at the time of the publication its paper (2020). However, its performance against **LiPPA**, for instance, is unknown. **Square attack** is the best black-box attack I'm currently aware of but its performance compared to LiPPA and AutoAttack is unknown as well.
+
+For global robustness verification, **VhAGAR** seems to perform the best but its capabilities are underwhelming when comparing the size of the networks it is able to verify compared to the size of networks used in real-world applications.
+
 ## Ideas to implement in Gogeta.jl
 
 ### From the papers
@@ -160,3 +171,7 @@ Finally, in addition to local robustness, some research has also been focused on
 ## Master's thesis idea?
 Implementing, adapting and improving relaxing walk for adversarial attacks and comparing it to the current methods, especially for other specific adversarial example generation methods (LP and gradient methods)
 * hypothesis: relaxing walk -based attack will be at competitive with state-of-the-art approaches and better than LiPPA for finding adversarial examples
+
+## Relevant links
+
+* [Verification of neural networks competition (VNN-COMP)](https://sites.google.com/view/vnn2023)
