@@ -4,7 +4,7 @@ filename: nn-robustness.md
 ---
 
 # Neural network robustness verification
-> *Released* 27.03.2024, *edited* 10.4.2024
+> *Released* 27.03.2024, *edited* 11.4.2024
 
 ## What is neural network robustness verification?
 
@@ -175,3 +175,5 @@ Implementing, adapting and improving relaxing walk for adversarial attacks and c
 ## Relevant links
 
 * [Verification of neural networks competition (VNN-COMP)](https://sites.google.com/view/vnn2023)
+* [Visualizing neural networks (TensorSpace.js)](https://tensorspace.org)
+* [ResNet-50 model](https://huggingface.co/microsoft/resnet-50)
