@@ -12,3 +12,5 @@ This page shows experiments done with the [Gogeta.jl](https://github.com/gamma-o
 ### [Neural network initialization - why randomness might mislead](nn-initialization.md)
 
 ### [Neural network robustness verification](nn-robustness.md)
+
+### [Relaxing walk for adversarial attacks and future directions for research](adv-attacks.md)
